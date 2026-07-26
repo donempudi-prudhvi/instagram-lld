@@ -1,8 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
+
 
 import models.Comment;
-import models.Like;
 import models.Post;
 import models.Profile;
 import services.CommentServiceImpl;
@@ -15,11 +13,7 @@ public class App {
         Profile user_1 = new Profile("user_1", "user_1@mail.com", false);
         Profile user_2 = new Profile("user_2", "user_2@mail.com", true);
 
-        List<Profile> followers = new ArrayList<>();
-        followers.add(user_2);
-
-        user_1.setFollowers(followers);
-        user_2.getFollowing().add(user_1);
+        user_2.follow(user_1);
 
         FeedServiceImpl feedServiceImpl = new FeedServiceImpl();
         PostServiceImpl postServiceImpl = new PostServiceImpl(feedServiceImpl);

@@ -28,7 +28,8 @@ public class Profile {
     }
 
     public void follow(Profile profile){
-        this.followers.add(profile);
+        this.following.add(profile);
+        profile.getFollowers().add(this);
     }
     public String getUsername() {
         return username;
