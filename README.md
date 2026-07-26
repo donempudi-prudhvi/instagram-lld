@@ -1,18 +1,18 @@
-## Getting Started
+## Instagram LLD
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This is a demo of Instagram LLD, this is purely based on java.
 
 ## Folder Structure
+- yet to be specified. 
 
-The workspace contains two folders by default, where:
+## Requirements
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+-  Authentication - this part is not covered in this
+-  Users must be able to post content
+-  Users must be able to see the content from the the people they follow
+-  User must be able to comment, and like the content
+-  A user can reply to a comment
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
