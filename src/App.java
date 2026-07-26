@@ -5,6 +5,7 @@ import models.Comment;
 import models.Like;
 import models.Post;
 import models.Profile;
+import services.CommentServiceImpl;
 import services.LikeServiceImpl;
 import services.PostServiceImpl;
 
@@ -18,22 +19,21 @@ public class App {
 
         user_1.setFollowers(followers);
         user_2.getFollowing().add(user_1);
-        
+
         PostServiceImpl postServiceImpl = new PostServiceImpl();
         postServiceImpl.createPost(user_1, "This is the first Post");
 
+        LikeServiceImpl likeServiceImpl = new LikeServiceImpl();
         for(Post post: user_2.getTimeLine().getPosts()){
-             List<Like> likes = post.getLikes();
-             likes.add(new Like(user_2));
+            likeServiceImpl.like(user_2, post);
         }
 
         for(Post post: user_2.getTimeLine().getPosts()){
-             List<Comment> comments = post.getComments();
-             Comment comment= new Comment("Good Post", user_2);
-             comments.add(comment);
-                for(Comment cmt: post.getComments()){
-                    cmt.getReplies().add(new Comment("Yes, this is Good", user_2));
-                }
+            CommentServiceImpl commentServiceImpl = new CommentServiceImpl();
+            commentServiceImpl.createComment("Good Post", user_2, post);
+            for(Comment cmt: post.getComments()){
+                commentServiceImpl.createComment("Yes, this is Good", user_2, cmt);
+            }
         }
         
         System.out.println("Summary of User 2 Time Line");
