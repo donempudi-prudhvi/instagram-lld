@@ -1,7 +1,7 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 
 import interfaces.LikeService;
 import interfaces.Likeable;
@@ -19,12 +19,16 @@ public class LikeServiceImpl implements LikeService{
     @Override
     public void unlike(Profile createdBy, Likeable likeable) {
         List<Like> allLikes = likeable.getLikes();
+        List<Like> likesToRemove = new ArrayList<>();
+
         for(Like l:allLikes){
             if(l.getLikedBy() == createdBy){
-                allLikes.remove(l);
-                return;
+                likesToRemove.add(l);
+                break; 
             }
         }
+        if(likesToRemove.size()>0)
+            allLikes.remove(likesToRemove.get(0));
         
     }
     

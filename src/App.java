@@ -17,7 +17,8 @@ public class App {
         followers.add(user_2);
 
         user_1.setFollowers(followers);
-
+        user_2.getFollowing().add(user_1);
+        
         PostServiceImpl postServiceImpl = new PostServiceImpl();
         postServiceImpl.createPost(user_1, "This is the first Post");
 
@@ -40,10 +41,10 @@ public class App {
              System.out.println("Likes for the post - "+ post.getDescription()+" : " + post.getLikes().size());
              System.out.println("Comments for the post - "+ post.getDescription());
                 for(Comment comment: post.getComments()){
-                    System.out.println("\t" + comment.getDescription());
-                    System.out.println("\t Replies for: " + comment.getDescription());
+                    System.out.println("\t" +comment.getDescription());
+                    System.out.println("\tReplies for: " + comment.getDescription());
                         for(Comment replies: comment.getReplies()){
-                            System.out.println("\t\t " + replies.getDescription());
+                            System.out.println("\t\t"+replies.getDescription());
                         }
                 }
         }

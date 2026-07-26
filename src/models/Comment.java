@@ -47,8 +47,7 @@ public class Comment implements Likeable, Commentable {
 
     @Override
     public List<Comment> getComments() {
-        // TODO Auto-generated method stub
-        return null;
+        return this.replies;
     }
 
     
