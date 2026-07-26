@@ -27,6 +27,9 @@ public class Profile {
         this.timeLine = new TimeLine();
     }
 
+    public void follow(Profile profile){
+        this.followers.add(profile);
+    }
     public String getUsername() {
         return username;
     }

@@ -6,6 +6,7 @@ import models.Like;
 import models.Post;
 import models.Profile;
 import services.CommentServiceImpl;
+import services.FeedServiceImpl;
 import services.LikeServiceImpl;
 import services.PostServiceImpl;
 
@@ -20,7 +21,8 @@ public class App {
         user_1.setFollowers(followers);
         user_2.getFollowing().add(user_1);
 
-        PostServiceImpl postServiceImpl = new PostServiceImpl();
+        FeedServiceImpl feedServiceImpl = new FeedServiceImpl();
+        PostServiceImpl postServiceImpl = new PostServiceImpl(feedServiceImpl);
         postServiceImpl.createPost(user_1, "This is the first Post");
 
         LikeServiceImpl likeServiceImpl = new LikeServiceImpl();
