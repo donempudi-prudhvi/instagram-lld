@@ -21,8 +21,9 @@ public class FeedServiceImpl implements FeedService{
     public List<Post> fetchFeed(Profile profile) {
         List<Post> posts = profile.getTimeLine().getPosts();
         List<Post> celebPosts = getCelbPosts(profile);
-        posts.addAll(celebPosts);
-        return posts;
+        List<Post> newPosts = new ArrayList<>(posts);
+        newPosts.addAll(celebPosts);
+        return newPosts;
     }
     
     private List<Post> getCelbPosts(Profile profile){
