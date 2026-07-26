@@ -20,8 +20,6 @@ public class App {
 
         PostServiceImpl postServiceImpl = new PostServiceImpl();
         postServiceImpl.createPost(user_1, "This is the first Post");
-        LikeServiceImpl likeServiceImpl = new LikeServiceImpl();
-
 
         for(Post post: user_2.getTimeLine().getPosts()){
              List<Like> likes = post.getLikes();
